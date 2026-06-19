@@ -6,7 +6,7 @@ import http from 'node:http';
 
 test('rate limit: allow 5 per minute, 6th is 429', async () => {
   const proc = spawn('node', ['src/server.js'], { env: { ...process.env, API_KEY: 'k', PORT: '9092', RATE_LIMIT_PER_MIN: '5' } });
-  await wait(300);
+  await wait(800);
 
   const base = 'http://localhost:9092';
   const statuses = [];
